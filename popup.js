@@ -1,7 +1,10 @@
 // const moment = require('moment');
-
-const maxCountsOnNoA = 10;
 Vue.config.devtools = true;
+let timeFromPeopleSoft = {};
+
+chrome.runtime.onMessage.addListener(function (enteredTimeRows) {
+  timeFromPeopleSoft = enteredTimeRows;
+});
 
 /**
  * Replaces console.log() statements with a wrapper that prevents the extension from logging
@@ -26,12 +29,14 @@ var app = new Vue({
   data: {
     settings: {},
     saved: {},
+    currentEnteredTime: timeFromPeopleSoft,
   },
   methods: {
-    addTimeTotals() {
+    async addTimeTotals() {
       console.log("adding time totals");
-      chrome.tabs.executeScript(null, { file: 'payloads/totalTime.js' });
-
+      await chrome.tabs
+        .executeScript(null, { file: "payloads/totalTime.js" })
+        .then((this.currentEnteredTime = timeFromPeopleSoft));
     },
   },
 });

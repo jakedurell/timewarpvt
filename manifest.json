@@ -12,8 +12,8 @@
     "webNavigation"
   ],
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "scripts": ["background.js", "jquery.min.js"],
+    "persistent": true
   },
   "page_action": {
     "default_popup": "popup.html",
@@ -29,7 +29,7 @@
   "content_scripts": [
     {
       "matches": ["*://*.erp.state.vt.us/*"],
-      "js": ["payloads/jquery.js"]
+      "js": ["jquery.min.js"]
     }
   ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",

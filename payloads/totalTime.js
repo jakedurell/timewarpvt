@@ -26,7 +26,6 @@
       let hrsWorked = Number(
         $("iframe#ptifrmtgtframe").contents().find(timeFieldCode).val()
       );
-      $("iframe#ptifrmtgtframe").contents().find(timeFieldCode).val('5')
       if (allCodeAllDayObject[timeCode]) {
         allCodeAllDayObject[timeCode].push(hrsWorked);
       } else {
@@ -37,19 +36,8 @@
   }
   console.log(allCodeAllDayObject);
 
-  /// Add total row
-  $("iframe#ptifrmtgtframe")
-    .contents()
-    .find("#ftrTR_WEEKLY_GRID\\$0_row13")
-    .after(getTotalRow());
+  chrome.runtime.sendMessage(allCodeAllDayObject)
+
 })();
 
-function getTotalRow() {
-  let blob =
-    '<tr id="ftrTR_WEEKLY_GRID$0_row13">' +
-    '<td align="right" style="white-space: nowrap;" height="25" class="PSLEVEL1GRIDODDROW PSGRIDFIRSTCOLUMN">' +
-    '<div id="win0divQTY_DAY1$12"><input type="text" name="QTY_DAY1$12" id="QTY_DAY1$12" tabindex="900" value="" class="PSEDITBOX" style="width:87px; text-align:right; " maxlength="20"></div>' +
-    "</td></tr>";
 
-  return blob;
-}
