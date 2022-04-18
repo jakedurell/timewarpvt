@@ -1,59 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="popup.css" rel="stylesheet" type="text/css" />
 
-    <!-- font awesome -->
-    <link
-      rel="stylesheet"
-      href="./node_modules/@fortawesome/fontawesome-free/css/all.css"
-    />
+<head>
+  <link href="popup.css" rel="stylesheet" type="text/css" />
 
-    <!-- jQuery -->
-    <script src="./node_modules/jquery/dist/jquery.js"></script>
+  <!-- font awesome -->
+  <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.css" />
 
-    <!-- Vue -->
-    <script src="./node_modules/vue/dist/vue.js"></script>
+  <!-- jQuery -->
+  <script src="./node_modules/jquery/dist/jquery.js"></script>
 
-    <!-- Moment -->
-    <script src="./node_modules/moment/min/moment.min.js"></script>
-  </head>
+  <!-- Vue -->
+  <script src="./node_modules/vue/dist/vue.js"></script>
 
-  <body>
-    <div id="filing-app">
-      <div id="coverDiv" class="empty-state">
-        <div class="popup-edition-wrap">
-          <p class="popup-edition">Time Warp VT 1.0</p>
-        </div>
-        <div class="inset text-center button-div">
-          <button
-            v-on:click="addTimeTotals"
-            class="add-docket-info btn btn-primary"
-          >
-            Total it<i class="fas fa-plus-circle"></i>
-          </button>
-          <button
-            v-on:click=""
-            class="add-docket-info btn btn-primary"
-          >
-            Squeeze<br /><i class="fas fa-file"></i>
-          </button>
-        </div>
-        <a
-          id="vtCourtsOnlineA"
-          class="title-page__link"
-          target="_blank"
-          href="https://vthr.erp.state.vt.us/psp/HRPRD/?cmd=login&languageCd=ENG&"
-        >
-          <p id="vtCourtsOnline">
-            <b
-              >SoV Peoplesoft Time Entry <i class="fas fa-external-link-alt"></i
-            ></b>
-          </p>
-        </a>
+  <!-- Moment -->
+  <script src="./node_modules/moment/min/moment.min.js"></script>
+</head>
+
+<body>
+  <div id="filing-app">
+    <div id="coverDiv" class="empty-state">
+      <div class="popup-edition-wrap">
+        <p class="popup-edition">Time Warp VT 1.0</p>
+      </div>
+      <div class="inset text-center button-div">
+        <button v-on:click="addTimeTotals" class="popup-button btn btn-primary">
+          Total it<i class="fas fa-plus-circle"></i>
+        </button>
+        <button v-on:click="" class="popup-button btn btn-primary">
+          Squeeze<br /><i class="fas fa-file"></i>
+        </button>
+      </div>
+      <a id="" class="title-page__link" target="_blank"
+        href="https://vthr.erp.state.vt.us/psp/HRPRD/?cmd=login&languageCd=ENG&">
+        <p id="">
+          <b>SoV Peoplesoft Time Entry <i class="fas fa-external-link-alt"></i></b>
+        </p>
         <p>{{currentEnteredTime}}</p>
+      </a>
+      <div class="fav-box">
+        <button v-on:click="copyCodes" class="popup-button btn btn-primary btn-copy">
+          Copy Codes
+          <br />
+          <i class="fas fa-file"></i>
+        </button>
       </div>
     </div>
-    <script id="script" src="popup.js"></script>
-  </body>
+  </div>
+  <script id="script" src="popup.js"></script>
+</body>
+
 </html>

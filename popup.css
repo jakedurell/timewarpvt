@@ -362,31 +362,20 @@ body {
     color: #555;
     background-color: transparent;
   }
-  .popup-edition-wrap {
-    width: 100%;
+
+
+  .fav-box {
+    border: solid 2px #222222;
+    max-width: 50%;
+    min-height: 50px;
+    margin: 10px 10px 20px 10px;
+    position: relative;
   }
-  .popup-edition {
-    margin: 15px auto 0px auto;
-    width: 70%;
-    text-align: center;
-    border: 2px solid #003300;
-    color: #4d99d3;
+
+  .fav-box .btn-copy {
     font-weight: 800;
+    font-family: 'open sans';
+    margin: -20px 5px 5px 10px;
+    position: absolute;
+    top: 5px;
   }
-  
-  .popup-edition-sub {
-    text-align: center;
-    color: #4d99d3;
-    font-style: italic;
-  }
-  
-  .donate-box {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  .donate {
-    margin: auto !important;
-  }
-  

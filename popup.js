@@ -4,6 +4,7 @@ let timeFromPeopleSoft = {};
 
 chrome.runtime.onMessage.addListener(function (enteredTimeRows) {
   timeFromPeopleSoft = enteredTimeRows;
+
 });
 
 /**
@@ -30,13 +31,19 @@ var app = new Vue({
     settings: {},
     saved: {},
     currentEnteredTime: timeFromPeopleSoft,
+    timeCodeArrays: [],
   },
   methods: {
     async addTimeTotals() {
       console.log("adding time totals");
       await chrome.tabs
         .executeScript(null, { file: "payloads/totalTime.js" })
-        .then((this.currentEnteredTime = timeFromPeopleSoft));
+
+    },
+    async copyCodes() {
+      console.log("copyingCodes");
+      await chrome.tabs
+        .executeScript(null, { file: "payloads/copyCodes.js" })
     },
   },
 });
