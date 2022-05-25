@@ -379,3 +379,8 @@ body {
     position: absolute;
     top: 5px;
   }
+
+  .function-menu  {
+    display: flex;
+    flex-direction: column;
+  }

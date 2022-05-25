@@ -32,6 +32,7 @@ var app = new Vue({
     saved: {},
     currentEnteredTime: timeFromPeopleSoft,
     timeCodeArrays: [],
+    csvString: ""
   },
   methods: {
     async addTimeTotals() {
@@ -45,5 +46,34 @@ var app = new Vue({
       await chrome.tabs
         .executeScript(null, { file: "payloads/copyCodes.js" })
     },
+    async processCSV() {
+      console.log("copyingCodes");
+      let rowStrings = this.csvString.split("\t\t ");
+      console.log(rowStrings)
+      let finalRows = []
+
+      rowStrings.forEach((rowString) => {
+        let rowObj = {}
+        rowObj.reportingCode = rowString.split("\t")[0]
+        console.log(rowObj)
+      })
+
+
+      // await chrome.tabs
+      //   .executeScript(null, { file: "payloads/copyCodes.js" })
+    },
   },
 });
+
+
+//Time Row Object
+/*
+[
+  {
+    reportingCode: "Hours Worked",
+    taskProfileId: "EASTRAT",
+    cashComp: "Cash"
+    time: [ 14 data points]
+  }
+]
+*/
