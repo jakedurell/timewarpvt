@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Time Warp VT",
   "version": "1.0.0",
   "description": "Assists with time entry",
@@ -12,10 +12,9 @@
     "webNavigation"
   ],
   "background": {
-    "scripts": ["background.js", "jquery.min.js"],
-    "persistent": true
+    "service_worker": "background.js"
   },
-  "page_action": {
+  "action": {
     "default_popup": "popup.html",
     "default_icon": {
       "16": "icons/icon16.png",
@@ -28,12 +27,20 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*.erp.state.vt.us/*"],
-      "js": ["jquery.min.js"]
+      "matches": [
+        "*://*.erp.state.vt.us/*"
+      ],
+      "js": [
+        "jquery.min.js"
+      ]
     }
   ],
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
   "externally_connectable": {
-    "ids": ["*"]
+    "ids": [
+      "*"
+    ]
   }
 }
