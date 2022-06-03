@@ -32,56 +32,51 @@
             )
         } else if (timeCodeCount < csvCount) {
             console.log(`Need to add ${csvCount - timeCodeCount} rows`)
-
             let rowsToAdd = csvCount - timeCodeCount
-
-            for (let i = 0; i < rowsToAdd; i++) {
-                $('#ftrTR_WEEKLY_GRID\\$0_row1 ADD_PB\\$0').trigger('click')
-            }
+            alert(`You have ${rowsToAdd} more rows to add`)
+            window.frames[0].document.getElementById('ADD_PB$0').click()
         }
-        console.log(
-            $('iframe#ptifrmtgtframe')
-                .contents()
-                .find('#tdgbrTR_WEEKLY_GRID\\$0 tbody tr')
-        )
+        // console.log(
+        //     $('iframe#ptifrmtgtframe')
+        //         .contents()
+        //         .find('#tdgbrTR_WEEKLY_GRID\\$0 tbody tr')
+        // )
 
-        alert('Time Codes Have Been Copied\n\ntimeCodeCount ' + timeCodeCount)
+        // console.log(
+        //     $('iframe#ptifrmtgtframe')
+        //         .contents()
+        //         .find('#trTR_WEEKLY_GRID\\$0_row1')
+        //         .children()
+        //         .eq(2)
+        //         .find('span')
+        //         .html()
+        //         .toString()
+        // )
+        // for (let i = 1; i <= timeCodeCount; i++) {
+        //     let reportingCodeRow = '#ftrTR_WEEKLY_GRID\\$0_row' + i
+        //     let reportingCode = $('iframe#ptifrmtgtframe')
+        //         .contents()
+        //         .find(reportingCodeRow)
+        //         .children()
+        //         .eq(15)
+        //         .find('span')
+        //         .html()
+        //         .toString()
+        //     allTimeCodes.push(reportingCode)
 
-        console.log(
-            $('iframe#ptifrmtgtframe')
-                .contents()
-                .find('#trTR_WEEKLY_GRID\\$0_row1')
-                .children()
-                .eq(2)
-                .find('span')
-                .html()
-                .toString()
-        )
-        for (let i = 1; i <= timeCodeCount; i++) {
-            let reportingCodeRow = '#ftrTR_WEEKLY_GRID\\$0_row' + i
-            let reportingCode = $('iframe#ptifrmtgtframe')
-                .contents()
-                .find(reportingCodeRow)
-                .children()
-                .eq(15)
-                .find('span')
-                .html()
-                .toString()
-            allTimeCodes.push(reportingCode)
+        //     let taskProfileRow = '#trTR_WEEKLY_GRID\\$0_row' + i
+        //     let profileId = $('iframe#ptifrmtgtframe')
+        //         .contents()
+        //         .find(taskProfileRow)
+        //         .children()
+        //         .eq(2)
+        //         .find('span')
+        //         .html()
+        //         .toString()
+        //     allProfilesIds.push(profileId)
+        // }
 
-            let taskProfileRow = '#trTR_WEEKLY_GRID\\$0_row' + i
-            let profileId = $('iframe#ptifrmtgtframe')
-                .contents()
-                .find(taskProfileRow)
-                .children()
-                .eq(2)
-                .find('span')
-                .html()
-                .toString()
-            allProfilesIds.push(profileId)
-        }
-
-        console.log(allProfilesIds)
-        console.log(allTimeCodes)
+        // console.log(allProfilesIds)
+        // console.log(allTimeCodes)
     })
 })()
