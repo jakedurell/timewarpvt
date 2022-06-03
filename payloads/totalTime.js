@@ -36,7 +36,7 @@
   }
   console.log(allCodeAllDayObject);
 
-  chrome.runtime.sendMessage(allCodeAllDayObject)
+  localStorage.setItem('allCodeAllDayObject', allCodeAllDayObject);
 
 })();
 
