@@ -58,7 +58,7 @@
         console.log(allProfilesIds)
 
         for (let i = 0; i < allProfilesIds.length; i++) {
-            profileString += `${allProfilesIds[i].toString()}\t`
+            profileString += `${allProfilesIds[i].toString()}\n`
             console.log(profileString)
         }
         //Create a textbox field where we can insert text to.
