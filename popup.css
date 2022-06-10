@@ -378,7 +378,10 @@ hr {
     position: absolute;
     top: 5px;
 }
-
+.csv-copy input {
+    border: red 3px solid;
+    height: 25px;
+}
 .function-menu {
     display: flex;
     flex-direction: column;
