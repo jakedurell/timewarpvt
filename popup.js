@@ -46,14 +46,17 @@ var app = new Vue({
       await chrome.tabs
         .executeScript(null, { file: "payloads/copyCodes.js" })
     },
-    // async insertCsvVals(csvVals) {
-    //   console.log("Sending payload with CSV vals");
-    //   await chrome.tabs
-    //     .executeScript(csvVals, { file: "payloads/insertCsvVals.js" })
-    // },
+    async insertCsvVals(csvVals) {
+      console.log("Sending payload with CSV vals");
+      await chrome.tabs
+        .executeScript(csvVals, { file: "payloads/insertCsvVals.js" })
+    },
     async processCSV() {
       console.log("copyingCodes");
-      let rowStrings = this.csvString.split("\t\t ");
+      console.log(this.csvString)
+
+      let rowStrings = this.csvString.split("x");
+      rowStrings.pop()
       console.log(rowStrings)
       let finalRows = []
 
@@ -84,9 +87,12 @@ var app = new Vue({
       chrome.storage.local.set({
         timeWarpRowsFromCsv: finalRows
       }, function () {
-        chrome.tabs.executeScript({
-          file: "./payloads/insertCsvVals.js"
+        chrome.tabs.executeScript(null, { file: "jquery.min.js" }, function () {
+          chrome.tabs.executeScript({
+            file: "./payloads/insertCsvVals.js"
+          });
         });
+
       });
 
 
