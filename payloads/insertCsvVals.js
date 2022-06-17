@@ -12,7 +12,7 @@
             .find('#win0divTR_WEEKLY_GRIDGP\\$0')
             .html()
 
-        console.log(`Current date range: & ${dateRangeString}`)
+        console.log(`Current date range: ${dateRangeString}`)
 
         let timeCodeCount = $('iframe#ptifrmtgtframe')
             .contents()
@@ -35,24 +35,27 @@
             )
             window.frames[0].document.getElementById('ADD_PB$0').click()
         } else {
+            console.log("Correct number of rows.")
             let csvTimeJsons = csvObjs.timeWarpRowsFromCsv
             for (let i = 0; i < csvCount; i++) {
+
                 let reportingCodeRow = '#TRC\\$' + i
                 let taskProfileRow = '#TASK_PROFILE_ID\\$' + i
 
-                console.log(csvTimeJsons[i].taskProfileId)
                 $('iframe#ptifrmtgtframe')
                     .contents()
                     .find(reportingCodeRow)
-                    .val(csvTimeJsons[i].reportingCode)
+                    .val(csvTimeJsons[i].reportingCode.trim())
+                console.log("reportingCodeRow",reportingCodeRow)
+                console.log("csvTimeJsons[i].reportingCode",csvTimeJsons[i].reportingCode)
 
                 $('iframe#ptifrmtgtframe')
                     .contents()
                     .find(taskProfileRow)
                     .val(csvTimeJsons[i].taskProfileId)
 
-                for (let j = 0; j < 14; j++) {
-                    let dayCode = '#QTY_DAY' + (j + 1) + '\\$' + i
+                for (let j = 1; j < 15; j++) {
+                    let dayCode = '#QTY_DAY' + j + '\\$' + i
                     $('iframe#ptifrmtgtframe')
                         .contents()
                         .find(dayCode)
