@@ -12,7 +12,7 @@
     "webNavigation"
   ],
   "background": {
-    "scripts": ["jquery.min.js"],
+    "scripts": ["jquery.min.js", "background.js"],
     "persistent": true
   },
   "page_action": {
@@ -28,7 +28,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://*/*"],
+      "matches": ["<all_urls>"],
       "js": ["jquery.min.js"]
     }
   ],
