@@ -19,7 +19,7 @@ function devLog(data) {
   // see https://developer.chrome.com/extensions/management#method-getSelf
   chrome.management.getSelf(function (self) {
     if (self.installType == "development") {
-      console.log(data);
+      console.log("data", data);
     }
   });
 }
@@ -53,11 +53,11 @@ var app = new Vue({
     },
     async processCSV() {
       console.log("copyingCodes");
-      console.log(this.csvString)
+      console.log("this.csvString",this.csvString)
 
       let rowStrings = this.csvString.split("x");
       rowStrings.pop()
-      console.log(rowStrings)
+      console.log("rowStrings", rowStrings)
       let finalRows = []
 
       rowStrings.forEach((rowString) => {
