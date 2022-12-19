@@ -12,7 +12,7 @@
             .find('#win0divTR_WEEKLY_GRIDGP\\$0')
             .html()
 
-        console.log(`Current date range: ${dateRangeString}`)
+        console.log(`Current date range on hr site: ${dateRangeString}`)
 
         let timeCodeCount = $('iframe#ptifrmtgtframe')
             .contents()
@@ -20,6 +20,10 @@
             .children().length
 
         let csvCount = csvObjs.timeWarpRowsFromCsv.length
+        console.log("csvCount", csvCount)
+        console.log("timeCodeCount", timeCodeCount)
+
+        console.log("csvObj", csvObjs)
 
         if (timeCodeCount > csvCount) {
             alert(

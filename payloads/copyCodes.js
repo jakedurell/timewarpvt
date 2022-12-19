@@ -11,7 +11,7 @@
         .find('#win0divTR_WEEKLY_GRIDGP\\$0')
         .html()
 
-    console.log(dateRangeString)
+    console.log("dateRangeString", dateRangeString)
 
     let timeCodeCount = $('iframe#ptifrmtgtframe')
         .contents()
@@ -55,11 +55,11 @@
 
     if (allProfilesIds.length > 0) {
         let profileString = ''
-        console.log(allProfilesIds)
+        console.log("allProfilesIds",allProfilesIds)
 
         for (let i = 0; i < allProfilesIds.length; i++) {
             profileString += `${allProfilesIds[i].toString()}\n`
-            console.log(profileString)
+            console.log("profileString",profileString)
         }
         //Create a textbox field where we can insert text to.
         var copyFrom = document.createElement('textarea')
@@ -86,7 +86,7 @@
         document.body.removeChild(copyFrom)
     }
 
-    console.log(allProfilesIds)
-    console.log(allTimeCodes)
+    console.log("allProfilesIds",allProfilesIds)
+    console.log("allTimeCodes",allProfilesIds)
     alert(`${allProfilesIds.length} profile IDs have been copied.`)
 })()
