@@ -21,17 +21,20 @@
 
         let csvCount = csvObjs.timeWarpRowsFromCsv.length
         console.log("csvCount", csvCount)
-        console.log("timeCodeCount", timeCodeCount)
+        console.log("Count of Rows:", timeCodeCount)
 
         console.log("csvObj", csvObjs)
+        console.log("Starting Number Checking")
 
         if (timeCodeCount > csvCount) {
+            console.log("Too Many Rows")
             alert(
                 'please reduce the number of rows to ' &
                     csvObjs.length &
                     ' before continuing'
             )
         } else if (timeCodeCount < csvCount) {
+            console.log("Too Few Rows")
             console.log(`Need to add ${csvCount - timeCodeCount} rows`)
             let rowsToAdd = csvCount - timeCodeCount
             alert(
