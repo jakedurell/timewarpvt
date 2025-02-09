@@ -62,7 +62,7 @@ var app = new Vue({
 
       rowStrings.forEach((rowString) => {
         let rowObj = {}
-        rowObj.reportingCode = rowString.split("\t")[0]
+        rowObj.reportingCode = rowString.split("\t")[0].trim()
         rowObj.taskProfileId = rowString.split("\t")[1]
         rowObj.day1 = rowString.split("\t")[2]
         rowObj.day2 = rowString.split("\t")[3]
